@@ -54,13 +54,8 @@ except URLError as e:
   streamlit.error()
   
 
-  
-
-
-
-streamlit.stop()
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','')
 if streamlit.button("Add fruit"):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   streamlit.text(insert_row_snowflake(add_my_fruit))
-  my_cnx.close())
+  my_cnx.close()
