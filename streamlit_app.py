@@ -52,6 +52,10 @@ try:
     streamlit.dataframe(get_fruityvice_data(fruit_choice))
 except URLError as e:
   streamlit.error()
+
+if streamlit.button("Get fruit_load_list"):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  streamlit.dataframe(get_fruit_load_list())
   
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','')
